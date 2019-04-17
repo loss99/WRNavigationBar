@@ -29,9 +29,13 @@
 
 ///设备的状态栏高度, 不管状态栏是否显示
 + (CGFloat)deviceStatusBarHeight {
-    CGFloat height = 20;
+    CGFloat height = [WRHelper currentStatusBarHeight];
+    if (height > 0) {
+        return height;
+    }
+    height = 20;
     UIEdgeInsets windowInset = [WRHelper mainWindowSafeAreaInsets];
-    if (windowInset.top > 20) {
+    if (windowInset.top > height) {
         //这样就可以兼容全面屏 iPad 了
         height = windowInset.top;
     }
@@ -79,3 +83,5 @@
 }
 
 @end
+
+
