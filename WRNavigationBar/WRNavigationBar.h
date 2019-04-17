@@ -11,9 +11,8 @@
 @class WRCustomNavigationBar;
 
 @interface WRNavigationBar : UIView
-+ (BOOL)isIphoneX;
 + (CGFloat)navBarBottom;
-+ (CGFloat)tabBarHeight;
++ (CGFloat)tabBarTop;
 + (CGFloat)screenWidth;
 + (CGFloat)screenHeight;
 @end

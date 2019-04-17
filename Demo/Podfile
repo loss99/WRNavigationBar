@@ -9,6 +9,8 @@ target ‘CodeDemo’ do
 
     #UI
     pod 'SDCycleScrollView','~> 1.64'
+
+    pod 'Reveal-SDK', :configurations => ['Debug']
     
 end
 

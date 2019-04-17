@@ -9,6 +9,7 @@
 
 #import "WRCustomNavigationBar.h"
 #import "sys/utsname.h"
+#import "WRHelper.h"
 
 #define kWRDefaultTitleSize 18
 #define kWRDefaultTitleColor [UIColor blackColor]
@@ -99,7 +100,7 @@
 
 // TODO:这边结合 WRCellView 会不会更好呢？
 -(void)updateFrame {
-    NSInteger top = ([WRCustomNavigationBar isIphoneX]) ? 44 : 20;
+    NSInteger top = [WRHelper deviceStatusBarHeight];
     NSInteger margin = 0;
     NSInteger buttonHeight = 44;
     NSInteger buttonWidth = 44;
@@ -265,37 +266,7 @@
 }
 
 + (int)navBarBottom {
-    return 44 + CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
-}
-+ (BOOL)isIphoneX {
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
-    if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) {
-        // judgment by height when in simulators
-        return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
-                CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)));
-    }
-    BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
-    return isIPhoneX;
+    return [WRHelper navBarBottom];
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

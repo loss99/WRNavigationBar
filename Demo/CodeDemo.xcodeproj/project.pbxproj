@@ -13,7 +13,6 @@
 		1A2061DF1E9CB496007BFB91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2061DE1E9CB496007BFB91 /* Assets.xcassets */; };
 		1A2061E21E9CB496007BFB91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A2061E01E9CB496007BFB91 /* LaunchScreen.storyboard */; };
 		1A2061ED1E9CB496007BFB91 /* CodeDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2061EC1E9CB496007BFB91 /* CodeDemoTests.m */; };
-		1A2061FA1E9CB4E4007BFB91 /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2061F91E9CB4E4007BFB91 /* WRNavigationBar.m */; };
 		1A5845E61F270D4500A24234 /* LaGouController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5845E51F270D4500A24234 /* LaGouController.m */; };
 		1A5845FF1F27835100A24234 /* WRImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5845FE1F27835100A24234 /* WRImageHelper.m */; };
 		1A7A6BDD1F1B4A5800A602D6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7A6BDA1F1B4A5800A602D6 /* BaseViewController.m */; };
@@ -36,7 +35,9 @@
 		29F1DC19441470C345522432 /* Pods_CodeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5025CF19A1273775CA7A2A /* Pods_CodeDemo.framework */; };
 		3428F8192011AB1D00724F83 /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3428F8182011AB1D00724F83 /* TestController.m */; };
 		34321EB01FDCE3AD00833E79 /* SpecialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34321EAF1FDCE3AD00833E79 /* SpecialController.m */; };
-		34E384B71F9C358700257F91 /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E384B61F9C358700257F91 /* WRCustomNavigationBar.m */; };
+		80D2BEDA2266BF2D0066A6DE /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D2BED42266BF2D0066A6DE /* WRNavigationBar.m */; };
+		80D2BEDB2266BF2D0066A6DE /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D2BED82266BF2D0066A6DE /* WRCustomNavigationBar.m */; };
+		80D2BEDC2266BF2D0066A6DE /* WRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D2BED92266BF2D0066A6DE /* WRHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +62,6 @@
 		1A2061E81E9CB496007BFB91 /* CodeDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A2061EC1E9CB496007BFB91 /* CodeDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeDemoTests.m; sourceTree = "<group>"; };
 		1A2061EE1E9CB496007BFB91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A2061F81E9CB4E4007BFB91 /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
-		1A2061F91E9CB4E4007BFB91 /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
 		1A5845E41F270D4500A24234 /* LaGouController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaGouController.h; sourceTree = "<group>"; };
 		1A5845E51F270D4500A24234 /* LaGouController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaGouController.m; sourceTree = "<group>"; };
 		1A5845FD1F27835100A24234 /* WRImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRImageHelper.h; sourceTree = "<group>"; };
@@ -105,9 +104,13 @@
 		3428F8182011AB1D00724F83 /* TestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
 		34321EAE1FDCE3AD00833E79 /* SpecialController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecialController.h; sourceTree = "<group>"; };
 		34321EAF1FDCE3AD00833E79 /* SpecialController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpecialController.m; sourceTree = "<group>"; };
-		34E384B51F9C358700257F91 /* WRCustomNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WRCustomNavigationBar.h; sourceTree = "<group>"; };
-		34E384B61F9C358700257F91 /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
 		37581D1AF27611119D8AA286 /* Pods-CodeDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeDemo/Pods-CodeDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		80D2BED42266BF2D0066A6DE /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
+		80D2BED52266BF2D0066A6DE /* WRCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCustomNavigationBar.h; sourceTree = "<group>"; };
+		80D2BED62266BF2D0066A6DE /* WRHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRHelper.h; sourceTree = "<group>"; };
+		80D2BED72266BF2D0066A6DE /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
+		80D2BED82266BF2D0066A6DE /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
+		80D2BED92266BF2D0066A6DE /* WRHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRHelper.m; sourceTree = "<group>"; };
 		BA5025CF19A1273775CA7A2A /* Pods_CodeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD02850717C2C54F9C2585E9 /* Pods-CodeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeDemo/Pods-CodeDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +137,7 @@
 		1A2061C61E9CB496007BFB91 = {
 			isa = PBXGroup;
 			children = (
+				80D2BED32266BF2D0066A6DE /* WRNavigationBar */,
 				1A2061D11E9CB496007BFB91 /* CodeDemo */,
 				1A2061EB1E9CB496007BFB91 /* CodeDemoTests */,
 				1A2061D01E9CB496007BFB91 /* Products */,
@@ -159,7 +163,6 @@
 				1A7A6BF41F1B4AD900A602D6 /* BaseNavigationController.h */,
 				1A7A6BF51F1B4AD900A602D6 /* BaseNavigationController.m */,
 				1A5845FC1F2782B300A24234 /* WRImageHelper */,
-				1A2061F71E9CB4E4007BFB91 /* WRNavigationBar */,
 				1A3807831EE453E000F349D7 /* 普通 */,
 				1A3807851EE453E000F349D7 /* 自定义导航栏 */,
 				1A3807841EE453E000F349D7 /* 移动导航栏 */,
@@ -187,17 +190,6 @@
 				1A2061EE1E9CB496007BFB91 /* Info.plist */,
 			);
 			path = CodeDemoTests;
-			sourceTree = "<group>";
-		};
-		1A2061F71E9CB4E4007BFB91 /* WRNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				1A2061F81E9CB4E4007BFB91 /* WRNavigationBar.h */,
-				1A2061F91E9CB4E4007BFB91 /* WRNavigationBar.m */,
-				34E384B51F9C358700257F91 /* WRCustomNavigationBar.h */,
-				34E384B61F9C358700257F91 /* WRCustomNavigationBar.m */,
-			);
-			path = WRNavigationBar;
 			sourceTree = "<group>";
 		};
 		1A3807831EE453E000F349D7 /* 普通 */ = {
@@ -276,6 +268,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		80D2BED32266BF2D0066A6DE /* WRNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				80D2BED62266BF2D0066A6DE /* WRHelper.h */,
+				80D2BED92266BF2D0066A6DE /* WRHelper.m */,
+				80D2BED72266BF2D0066A6DE /* WRNavigationBar.h */,
+				80D2BED42266BF2D0066A6DE /* WRNavigationBar.m */,
+				80D2BED52266BF2D0066A6DE /* WRCustomNavigationBar.h */,
+				80D2BED82266BF2D0066A6DE /* WRCustomNavigationBar.m */,
+			);
+			name = WRNavigationBar;
+			path = ../WRNavigationBar;
+			sourceTree = "<group>";
+		};
 		927F9EB9E385179D289EBE2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,7 +303,6 @@
 				1A2061CC1E9CB496007BFB91 /* Frameworks */,
 				1A2061CD1E9CB496007BFB91 /* Resources */,
 				0277B9715B8BF91905DF502F /* [CP] Embed Pods Frameworks */,
-				51852EF6DFAA4E59EDA5B7F2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -353,6 +358,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -394,8 +400,9 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CodeDemo/Pods-CodeDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CodeDemo/Pods-CodeDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-21/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
@@ -403,28 +410,14 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeDemo/Pods-CodeDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		51852EF6DFAA4E59EDA5B7F2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeDemo/Pods-CodeDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CodeDemo/Pods-CodeDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C1144A7FC86B85BEC474CD53 /* [CP] Check Pods Manifest.lock */ = {
@@ -453,16 +446,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A7A6BE61F1B4A9B00A602D6 /* SecondViewController.m in Sources */,
-				34E384B71F9C358700257F91 /* WRCustomNavigationBar.m in Sources */,
 				1A7A6BDD1F1B4A5800A602D6 /* BaseViewController.m in Sources */,
+				80D2BEDA2266BF2D0066A6DE /* WRNavigationBar.m in Sources */,
 				1A5845E61F270D4500A24234 /* LaGouController.m in Sources */,
+				80D2BEDC2266BF2D0066A6DE /* WRHelper.m in Sources */,
 				1A7A6BF21F1B4AC600A602D6 /* QQZoneController.m in Sources */,
 				1AAA1D4E1EEE480400681CB9 /* QQMineController.m in Sources */,
 				1A7A6BF61F1B4AD900A602D6 /* BaseNavigationController.m in Sources */,
 				1A2061D71E9CB496007BFB91 /* AppDelegate.m in Sources */,
 				1A7A6BF31F1B4AC600A602D6 /* WeiBoMineController.m in Sources */,
 				1AAA1D4B1EEE380400681CB9 /* ZhiHuController.m in Sources */,
-				1A2061FA1E9CB4E4007BFB91 /* WRNavigationBar.m in Sources */,
 				34321EB01FDCE3AD00833E79 /* SpecialController.m in Sources */,
 				1A7A6BE11F1B4A8600A602D6 /* CustomNavBarController.m in Sources */,
 				1AAE08E91EE7F3350085C3A2 /* MoveListController.m in Sources */,
@@ -475,6 +468,7 @@
 				1A7A6BE71F1B4A9B00A602D6 /* SixthViewController.m in Sources */,
 				1A5845FF1F27835100A24234 /* WRImageHelper.m in Sources */,
 				1A7A6BF01F1B4AC600A602D6 /* NormalListController.m in Sources */,
+				80D2BEDB2266BF2D0066A6DE /* WRCustomNavigationBar.m in Sources */,
 				1AADC3921F22F73A00BB73D9 /* AllTransparent.m in Sources */,
 				1A2061D41E9CB496007BFB91 /* main.m in Sources */,
 			);
@@ -619,12 +613,12 @@
 				DEVELOPMENT_TEAM = 652U6LDTX4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CodeDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = video.com.wangrui460;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -639,12 +633,12 @@
 				DEVELOPMENT_TEAM = 652U6LDTX4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CodeDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = video.com.wangrui460;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

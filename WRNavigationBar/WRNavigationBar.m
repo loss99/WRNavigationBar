@@ -10,34 +10,21 @@
 #import "WRNavigationBar.h"
 #import <objc/runtime.h>
 #import "sys/utsname.h"
+#import "WRHelper.h"
 
 @implementation WRNavigationBar
-
-+ (BOOL)isIphoneX {
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
-    if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) {
-        // judgment by height when in simulators
-        return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
-                CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)));
-    }
-    BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
-    return isIPhoneX;
-}
 + (CGFloat)navBarBottom {
-    return [self isIphoneX] ? 88 : 64;
+    return [WRHelper navBarBottom];
 }
-+ (CGFloat)tabBarHeight {
-    return [self isIphoneX] ? 83 : 49;
++ (CGFloat)tabBarTop {
+    return [WRHelper tabBarTop];
 }
 + (CGFloat)screenWidth {
-    return [UIScreen mainScreen].bounds.size.width;
+    return [WRHelper screenWidth];
 }
 + (CGFloat)screenHeight {
-    return [UIScreen mainScreen].bounds.size.height;
+    return [WRHelper screenHeight];
 }
-
 @end
 
 
@@ -185,6 +172,16 @@ static char kWRBackgroundImageKey;
 - (UIView *)backgroundView {
     return (UIView *)objc_getAssociatedObject(self, &kWRBackgroundViewKey);
 }
+
+- (CGRect) backgroundViewFrame {
+    return [self barBackgroundView].bounds;
+}
+
+///bar 本身的backgroundView, _UIBarBackground
+- (UIView *)barBackgroundView {
+    return self.subviews.firstObject;
+}
+
 - (void)setBackgroundView:(UIView *)backgroundView {
     if (backgroundView) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wr_keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
@@ -217,7 +214,7 @@ static char kWRBackgroundImageKey;
         // add a image(nil color) to _UIBarBackground make it clear
         [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         if (self.subviews.count > 0) {
-            self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), [WRNavigationBar navBarBottom])];
+            self.backgroundImageView = [[UIImageView alloc] initWithFrame:[self backgroundViewFrame]];
             self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             
             // _UIBarBackground is first subView for navigationBar
@@ -236,7 +233,7 @@ static char kWRBackgroundImageKey;
     if (self.backgroundView == nil) {
         // add a image(nil color) to _UIBarBackground make it clear
         [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        self.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), [WRNavigationBar navBarBottom])];
+        self.backgroundView = [[UIView alloc] initWithFrame:[self backgroundViewFrame]];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         // _UIBarBackground is first subView for navigationBar
         [self.subviews.firstObject insertSubview:self.backgroundView atIndex:0];
