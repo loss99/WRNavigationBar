@@ -13,11 +13,11 @@
 #import "WRHelper.h"
 
 @implementation WRNavigationBar
-+ (CGFloat)navBarBottom {
-    return [WRHelper navBarBottom];
++ (CGFloat)defaultNavBarBottom {
+    return [WRHelper defaultNavBarBottom];
 }
-+ (CGFloat)tabBarTop {
-    return [WRHelper tabBarTop];
++ (CGFloat)defaultTabBarTop {
+    return [WRHelper defaultTabBarTop];
 }
 + (CGFloat)screenWidth {
     return [WRHelper screenWidth];
@@ -174,7 +174,11 @@ static char kWRBackgroundImageKey;
 }
 
 - (CGRect) backgroundViewFrame {
-    return CGRectMake(0, 0, self.bounds.size.width, [WRNavigationBar navBarBottom]);
+    //根据真实的状态栏高度来计算
+    CGRect barFrame = self.frame;
+    CGFloat height = barFrame.origin.y + barFrame.size.height;
+    //CGFloat height = [WRNavigationBar defaultNavBarBottom];
+    return CGRectMake(0, 0, self.bounds.size.width, height);
     //有时候bounds获取到的高度是44, 弃用下面的方式
     //    CGRect bounds = self.subviews.firstObject.bounds;
     //    return bounds;
@@ -184,9 +188,11 @@ static char kWRBackgroundImageKey;
     if (backgroundView) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wr_keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wr_keyboardWillHide) name:UIKeyboardWillHideNotification object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(wr_statusBarFrameDidChange) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     } else {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     }
     objc_setAssociatedObject(self, &kWRBackgroundViewKey, backgroundView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -251,7 +257,7 @@ static char kWRBackgroundImageKey;
         Class _UIBarBackgroundClass = NSClassFromString(@"_UIBarBackground");
         if (_UIBarBackgroundClass != nil) {
             if ([view isKindOfClass:_UIBarBackgroundClass]) {
-                view.frame = CGRectMake(0, self.frame.size.height-[WRNavigationBar navBarBottom], [WRNavigationBar screenWidth], [WRNavigationBar navBarBottom]);
+                view.frame = CGRectMake(0, self.frame.size.height-[WRNavigationBar defaultNavBarBottom], [WRNavigationBar screenWidth], [WRNavigationBar defaultNavBarBottom]);
             }
         }
     }
@@ -366,6 +372,21 @@ static char kWRBackgroundImageKey;
         newTitleTextAttributes[NSForegroundColorAttributeName] = titleColor;
     }
     [self wr_setTitleTextAttributes:newTitleTextAttributes];
+}
+
+/**
+ 当状态栏frame变化的时候, 更新backgroundView的frame
+ */
+- (void)wr_statusBarFrameDidChange {
+    CGRect frame = [self backgroundViewFrame];
+    UIView *back = [self backgroundView];
+    if (back) {
+        back.frame = frame;
+    }
+    UIView *image = [self backgroundImageView];
+    if (image) {
+        image.frame = frame;
+    }
 }
 
 @end
@@ -898,5 +919,4 @@ static char kWRSystemNavBarTitleColorKey;
 }
 
 @end
-
 

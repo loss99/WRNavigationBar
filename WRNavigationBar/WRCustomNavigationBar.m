@@ -100,7 +100,7 @@
 
 // TODO:这边结合 WRCellView 会不会更好呢？
 -(void)updateFrame {
-    NSInteger top = [WRHelper deviceStatusBarHeight];
+    NSInteger top = [WRHelper defaultStatusBarHeight];
     NSInteger margin = 0;
     NSInteger buttonHeight = 44;
     NSInteger buttonWidth = 44;
@@ -266,7 +266,7 @@
 }
 
 + (int)navBarBottom {
-    return [WRHelper navBarBottom];
+    return [WRHelper defaultNavBarBottom];
 }
 
 @end

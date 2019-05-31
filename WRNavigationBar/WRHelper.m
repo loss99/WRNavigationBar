@@ -16,38 +16,55 @@
 
     // 判断安全区域, 只支持 iOS11 以上
     if (@available(iOS 11.0, *)) {
-        UIWindow *mainWindow = [UIApplication sharedApplication].keyWindow;
-        round = mainWindow.safeAreaInsets.top > 0.0;
+        UIEdgeInsets inset = [WRHelper screenSafeAreaInsets];
+        round = round || inset.top > 0;
+        round = round || inset.right > 0;
+        round = round || inset.bottom > 0;
+        round = round || inset.left > 0;
     }
 
     return round;
 }
 
-+ (UIEdgeInsets)mainWindowSafeAreaInsets {
++ (UIEdgeInsets)screenSafeAreaInsets {
     return [UIApplication sharedApplication].keyWindow.safeAreaInsets;
 }
 
 ///设备的状态栏高度, 不管状态栏是否显示
-+ (CGFloat)deviceStatusBarHeight {
-    CGFloat height = [WRHelper currentStatusBarHeight];
-    if (height > 0) {
-        return height;
++ (CGFloat)defaultStatusBarHeight {
+    if (![WRHelper isRoundCornerScreen]) {
+        //非全面屏, 默认就是20
+        return 20;
+    }else {
+        UIEdgeInsets inset = [WRHelper screenSafeAreaInsets];
+        UIInterfaceOrientation statusBarOrientation = UIApplication.sharedApplication.statusBarOrientation;
+        switch (statusBarOrientation) {
+            case UIInterfaceOrientationPortrait:
+                return inset.top;
+                break;
+            case UIInterfaceOrientationPortraitUpsideDown:
+                return inset.bottom;
+                break;
+            case UIInterfaceOrientationLandscapeLeft:
+                return inset.left;
+                break;
+            case UIInterfaceOrientationLandscapeRight:
+                return inset.right;
+                break;
+            default:
+                return inset.top;
+                break;
+        }
     }
-    height = 20;
-    UIEdgeInsets windowInset = [WRHelper mainWindowSafeAreaInsets];
-    if (windowInset.top > height) {
-        //这样就可以兼容全面屏 iPad 了
-        height = windowInset.top;
-    }
-    return height;
+
 }
 
 ///设备当前的状态栏高度, 隐藏的话则为 0
-+ (CGFloat)currentStatusBarHeight {
++ (CGFloat)statusBarHeight {
     return [UIApplication sharedApplication].statusBarFrame.size.height;
 }
 
-+ (CGFloat)navBarHeight {
++ (CGFloat)defaultNavBarHeight {
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         if (@available(iOS 12.0, *)) {
             return 50;
@@ -56,12 +73,12 @@
     return 44;
 }
 
-+ (CGFloat)navBarBottom {
-    CGFloat height = [WRHelper currentStatusBarHeight] + [WRHelper navBarHeight];
++ (CGFloat)defaultNavBarBottom {
+    CGFloat height = [WRHelper defaultStatusBarHeight] + [WRHelper defaultNavBarHeight];
     return height;
 }
 
-+ (CGFloat)tabBarHeight {
++ (CGFloat)defaultTabBarHeight {
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         if (@available(iOS 12.0, *)) {
             return 50;
@@ -70,8 +87,8 @@
     return 49;
 }
 
-+ (CGFloat) tabBarTop {
-    return [WRHelper mainWindowSafeAreaInsets].bottom + [WRHelper tabBarHeight];
++ (CGFloat) defaultTabBarTop {
+    return [WRHelper mainWindowSafeAreaInsets].bottom + [WRHelper defaultTabBarHeight];
 }
 
 + (CGFloat)screenWidth {

@@ -11,8 +11,8 @@
 @class WRCustomNavigationBar;
 
 @interface WRNavigationBar : UIView
-+ (CGFloat)navBarBottom;
-+ (CGFloat)tabBarTop;
++ (CGFloat)defaultNavBarBottom;
++ (CGFloat)defaultTabBarTop;
 + (CGFloat)screenWidth;
 + (CGFloat)screenHeight;
 @end

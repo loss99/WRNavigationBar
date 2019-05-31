@@ -15,16 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)isRoundCornerScreen;
 + (UIEdgeInsets)mainWindowSafeAreaInsets;
 
-+ (CGFloat)deviceStatusBarHeight;
-+ (CGFloat)currentStatusBarHeight;
++ (CGFloat)defaultStatusBarHeight;
++ (CGFloat)statusBarHeight;
 
 ///真实的内容高度
-+ (CGFloat) navBarHeight;
-+ (CGFloat)navBarBottom;
++ (CGFloat) defaultNavBarHeight;
++ (CGFloat)defaultNavBarBottom;
 
 ///真实的内容高度
-+ (CGFloat)tabBarHeight;
-+ (CGFloat)tabBarTop;
++ (CGFloat)defaultTabBarHeight;
++ (CGFloat)defaultTabBarTop;
 
 + (CGFloat)screenWidth;
 + (CGFloat)screenHeight;
