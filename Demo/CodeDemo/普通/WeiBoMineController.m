@@ -181,7 +181,7 @@
 
 - (int)navBarBottom
 {
-    return [WRNavigationBar navBarBottom];
+    return [WRNavigationBar defaultNavBarBottom];
 }
 
 @end

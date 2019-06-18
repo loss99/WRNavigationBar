@@ -11,10 +11,15 @@
 @class WRCustomNavigationBar;
 
 @interface WRNavigationBar : UIView
+
 + (CGFloat)defaultNavBarBottom;
+
 + (CGFloat)defaultTabBarTop;
+
 + (CGFloat)screenWidth;
+
 + (CGFloat)screenHeight;
+
 @end
 
 

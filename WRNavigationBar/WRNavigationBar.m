@@ -13,15 +13,19 @@
 #import "WRHelper.h"
 
 @implementation WRNavigationBar
+
 + (CGFloat)defaultNavBarBottom {
     return [WRHelper defaultNavBarBottom];
 }
+
 + (CGFloat)defaultTabBarTop {
     return [WRHelper defaultTabBarTop];
 }
+
 + (CGFloat)screenWidth {
     return [WRHelper screenWidth];
 }
+
 + (CGFloat)screenHeight {
     return [WRHelper screenHeight];
 }
@@ -177,11 +181,7 @@ static char kWRBackgroundImageKey;
     //根据真实的状态栏高度来计算
     CGRect barFrame = self.frame;
     CGFloat height = barFrame.origin.y + barFrame.size.height;
-    //CGFloat height = [WRNavigationBar defaultNavBarBottom];
     return CGRectMake(0, 0, self.bounds.size.width, height);
-    //有时候bounds获取到的高度是44, 弃用下面的方式
-    //    CGRect bounds = self.subviews.firstObject.bounds;
-    //    return bounds;
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView {
@@ -224,6 +224,9 @@ static char kWRBackgroundImageKey;
             // _UIBarBackground is first subView for navigationBar
             [self.subviews.firstObject insertSubview:self.backgroundImageView atIndex:0];
         }
+    }else {
+        //当已经存在该View的时候, 更新frame, 防止frame不同步
+        self.backgroundImageView.frame = [self backgroundViewFrame];
     }
     self.backgroundImage = image;
     self.backgroundImageView.image = image;
@@ -241,6 +244,9 @@ static char kWRBackgroundImageKey;
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         // _UIBarBackground is first subView for navigationBar
         [self.subviews.firstObject insertSubview:self.backgroundView atIndex:0];
+    }else {
+        //当已经存在该View的时候, 更新frame, 防止frame不同步
+        self.backgroundView.frame = [self backgroundViewFrame];
     }
     self.backgroundView.backgroundColor = color;
 }
@@ -447,6 +453,10 @@ static int wrPushDisplayCount = 0;
 }
 
 - (void)updateNavigationBarWithFromVC:(UIViewController *)fromVC toVC:(UIViewController *)toVC progress:(CGFloat)progress {
+    //下面的判断修复了部分黑名单失效的问题, 是由TZImagePickerController的作者提出来的
+    if (![WRNavigationBar needUpdateNavigationBar:toVC]) {
+        return;
+    }
     // change navBarBarTintColor
     UIColor *fromBarTintColor = [fromVC wr_navBarBarTintColor];
     UIColor *toBarTintColor = [toVC wr_navBarBarTintColor];
@@ -919,4 +929,5 @@ static char kWRSystemNavBarTitleColorKey;
 }
 
 @end
+
 

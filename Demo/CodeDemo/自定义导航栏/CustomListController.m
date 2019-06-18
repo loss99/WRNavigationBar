@@ -103,7 +103,7 @@
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        CGFloat top = [WRNavigationBar navBarBottom];
+        CGFloat top = [WRNavigationBar defaultNavBarBottom];
         CGRect frame = CGRectMake(0, top, self.view.frame.size.width, self.view.frame.size.height-top-49);
         _tableView = [[UITableView alloc] initWithFrame:frame
                                                   style:UITableViewStylePlain];

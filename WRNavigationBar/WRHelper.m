@@ -16,7 +16,7 @@
 
     // 判断安全区域, 只支持 iOS11 以上
     if (@available(iOS 11.0, *)) {
-        UIEdgeInsets inset = [WRHelper screenSafeAreaInsets];
+        UIEdgeInsets inset = [WRHelper mainWindowSafeAreaInsets];
         round = round || inset.top > 0;
         round = round || inset.right > 0;
         round = round || inset.bottom > 0;
@@ -26,8 +26,8 @@
     return round;
 }
 
-+ (UIEdgeInsets)screenSafeAreaInsets {
-    return [UIApplication sharedApplication].keyWindow.safeAreaInsets;
++ (UIEdgeInsets) mainWindowSafeAreaInsets {
+    return [UIApplication sharedApplication].windows.firstObject.safeAreaInsets;
 }
 
 ///设备的状态栏高度, 不管状态栏是否显示
@@ -36,7 +36,7 @@
         //非全面屏, 默认就是20
         return 20;
     }else {
-        UIEdgeInsets inset = [WRHelper screenSafeAreaInsets];
+        UIEdgeInsets inset = [WRHelper mainWindowSafeAreaInsets];
         UIInterfaceOrientation statusBarOrientation = UIApplication.sharedApplication.statusBarOrientation;
         switch (statusBarOrientation) {
             case UIInterfaceOrientationPortrait:

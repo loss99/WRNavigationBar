@@ -18,11 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGFloat)defaultStatusBarHeight;
 + (CGFloat)statusBarHeight;
 
-///真实的内容高度
 + (CGFloat) defaultNavBarHeight;
 + (CGFloat)defaultNavBarBottom;
 
-///真实的内容高度
 + (CGFloat)defaultTabBarHeight;
 + (CGFloat)defaultTabBarTop;
 
